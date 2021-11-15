@@ -8,6 +8,8 @@ import static com.example.lab7.App.CHANNEL_1_ID;
 import static com.example.lab7.App.CHANNEL_2_ID;
 
 import android.app.Notification;
+import android.app.PendingIntent;
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.view.View;
@@ -31,6 +33,9 @@ public class MainActivity extends AppCompatActivity {
     public void sendOnChannel1 (View v){
         String title = editTextTitle.getText().toString();
         String message = editTextMessage.getText().toString();
+
+        Intent activityIntent = new Intent(this, MainActivity.class);
+        PendingIntent contentIntent = PendingIntent.getActivity(this, 0, activityIntent, 0);
 
         Notification notification = new NotificationCompat.Builder(this, CHANNEL_1_ID)
 
